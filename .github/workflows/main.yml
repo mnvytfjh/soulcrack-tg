@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: sudo ./soul 52.140.18.38 25985 10
+    - run: echo "Ready for attack"
