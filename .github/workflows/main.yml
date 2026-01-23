@@ -1,5 +1,5 @@
 name: bgmi Attack
-on: [push]
+on: workflow_dispatch
 jobs:
   attack:
     runs-on: ubuntu-22.04
