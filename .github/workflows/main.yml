@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: sudo ./soul 20.235.143.122 29615 180 || true
+    - run: sudo ./soul 20.235.143.122 29615 30 || true
