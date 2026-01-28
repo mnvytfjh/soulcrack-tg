@@ -1,0 +1,4 @@
+task:
+  name: force trigger
+  script:
+    - echo "Hello from Cirrus"
