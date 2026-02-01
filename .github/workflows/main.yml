@@ -1,13 +1,14 @@
 name: soul Attack
 on: [push]
+
 jobs:
-  attack:
+  soul:
     runs-on: ubuntu-22.04
     strategy:
-      fail-fast: false
       matrix:
-        n: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        n: [1,2,3,4,5,6,7,8,9,10,
+            11,12,13,14,15]
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: sudo ./soul 20.198.111.7 14302 180 || true
+    - run: sudo ./soul 1.1.1.1 1 1
