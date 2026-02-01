@@ -17,4 +17,4 @@ jobs:
       - name: Make binary executable
         run: chmod +x soul
       - name: Run soul
-        run: ./soul 1.1.1.1 1 1
+        run: ./soul 20.204.88.77 10774 60
